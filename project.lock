@@ -1,0 +1,77 @@
+preprocess:
+  cmd: python -m spacy run preprocess
+  script:
+    - python scripts/preprocess.py assets/admin.jsonl corpus/admin.spacy
+    - python scripts/preprocess.py assets/admin.jsonl corpus/admin.spacy
+  deps:
+    - path: assets/admin.jsonl
+      md5: f34177bce213deb8b2cc45b8c0a5759d
+    - path: assets/admin.jsonl
+      md5: f34177bce213deb8b2cc45b8c0a5759d
+    - path: scripts/preprocess.py
+      md5: 6bb4dc1be1e47de2a43e3c5808478549
+  outs:
+    - path: corpus/admin.spacy
+      md5: 5c6e06c3583fc184b5bf23c4eaa4acdf
+    - path: corpus/admin.spacy
+      md5: 5c6e06c3583fc184b5bf23c4eaa4acdf
+  spacy_version: 3.5.4
+  spacy_git_version: 7a2833bf2
+patternmod:
+  cmd: python -m spacy run patternmod
+  script:
+    - python scripts/save_pattern_model.py configs/proglang_patterns.jsonl training/model-pattern
+  deps:
+    - path: configs/proglang_patterns.jsonl
+      md5: 89da1b44ca29158655f9f5f7e23159dd
+  outs:
+    - path: training/model-pattern
+      md5: a17b50f265579029aa07dc70e52b977a
+  spacy_version: 3.5.4
+  spacy_git_version: 7a2833bf2
+train:
+  cmd: python -m spacy run train
+  script:
+    - python -m spacy train configs/config.cfg --output training/ --paths.train corpus/admin.spacy
+      --paths.dev corpus/admin.spacy
+  deps:
+    - path: corpus/admin.spacy
+      md5: 5c6e06c3583fc184b5bf23c4eaa4acdf
+  outs:
+    - path: training/model-best
+      md5: b1e6ea7d3aa01c0332b409cfc67fd45c
+  spacy_version: 3.5.4
+  spacy_git_version: 7a2833bf2
+evaluate:
+  cmd: python -m spacy run evaluate
+  script:
+    - python -m spacy evaluate training/model-best corpus/admin.spacy --output training/model-metrics.json
+    - python -m spacy evaluate training/model-pattern corpus/admin.spacy --output
+      training/pattern-metrics.json
+  deps:
+    - path: training/model-pattern
+      md5: a17b50f265579029aa07dc70e52b977a
+    - path: training/model-best
+      md5: b1e6ea7d3aa01c0332b409cfc67fd45c
+    - path: corpus/admin.spacy
+      md5: 5c6e06c3583fc184b5bf23c4eaa4acdf
+  outs:
+    - path: training/model-metrics.json
+      md5: c824189bf60eb5bf44e8c697755d3cf7
+    - path: training/pattern-metrics.json
+      md5: b25404efc7b1b32a3af3925765d2cd3a
+  spacy_version: 3.5.4
+  spacy_git_version: 7a2833bf2
+package:
+  cmd: python -m spacy run package
+  script:
+    - python -m spacy package training/model-best packages --name ner_proglang --version
+      0.0.0 --force
+  deps:
+    - path: training/model-best
+      md5: b1e6ea7d3aa01c0332b409cfc67fd45c
+  outs:
+    - path: packages/en_ner_proglang-0.0.0/dist/en_ner_proglang-0.0.0.tar.gz
+      md5: 3650fa8bd6a29f993d157f084f6e3adb
+  spacy_version: 3.5.4
+  spacy_git_version: 7a2833bf2

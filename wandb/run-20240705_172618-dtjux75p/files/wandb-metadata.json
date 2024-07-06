@@ -1,0 +1,45 @@
+{
+    "os": "macOS-14.4-arm64-arm-64bit",
+    "python": "3.9.12",
+    "heartbeatAt": "2024-07-05T14:26:19.697097",
+    "startedAt": "2024-07-05T14:26:18.188759",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "train",
+        "configs/config.cfg",
+        "--output",
+        "training/",
+        "--paths.train",
+        "corpus/admin.spacy",
+        "--paths.dev",
+        "corpus/admin.spacy"
+    ],
+    "state": "running",
+    "program": "-m spacy.__main__",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/koaning/proglang-project.git",
+        "commit": "f077526722886a13bfd400c105d5550937a0783a"
+    },
+    "email": null,
+    "root": "/Users/vasilegrosu/Dev/proglang-project",
+    "host": "Vasiles-MacBook-Pro.local",
+    "username": "vasilegrosu",
+    "executable": "/Users/vasilegrosu/miniconda3/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "disk": {
+        "/": {
+            "total": 926.3517189025879,
+            "used": 12.539825439453125
+        }
+    },
+    "gpuapple": {
+        "type": "Apple M1 Max",
+        "vendor": "sppci_vendor_Apple"
+    },
+    "memory": {
+        "total": 32.0
+    }
+}
