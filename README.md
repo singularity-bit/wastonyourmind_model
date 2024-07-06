@@ -48,7 +48,6 @@ in the project directory.
 
 | File | Source | Description |
 | --- | --- | --- |
-| [`assets/admin.jsonl`](https://ibm.box.com/s/t19p6wojoyqyncxk4hild3fvoittzf2p) | Local | JSONL-formatted training data |
-| [`assets/admin.jsonl`](https://ibm.box.com/s/t19p6wojoyqyncxk4hild3fvoittzf2p) | Local | JSONL-formatted validation data |
+| [`assets/admin.jsonl`](https://ibm.box.com/s/rlbkibdb98s1w9k2886po4p35s1n2g6j) | Local | JSONL-formatted training data |
 
 <!-- SPACY PROJECT: AUTO-GENERATED DOCS END (do not remove) -->
