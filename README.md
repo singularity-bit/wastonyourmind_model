@@ -1,10 +1,8 @@
 # 🪐 spaCy Project: Programming Languages NER
 
-This project attempts to detect programming languages using datasets from Stackoverflow and Reddit. The goal of the project is to make a model that could be used generally but it will specifically be used as a sentiment analysis exercise on reddit. We'd like to investigate how the different communities think about different programming languages.
+This project attempts to detect programming languages. The goal of the project is to make a model that could be used generally but it will specifically be used as a sentiment analysis exercise.
 
 We typically compare two models in this project; a pattern matching model and a spaCy NER model.
-
-You can find a youtube series on these models on [this playlist](https://www.youtube.com/watch?v=k77RrmMaKEI&list=PLBmcuObd5An559HbDr_alBnwVsGq-7uTF&index=6). The first 5 videos are made using spaCy 2.3, if you're interested in learning more about this project structure it'd be better to start watching [here](https://www.youtube.com/watch?v=k77RrmMaKEI). 
 
 <!-- SPACY PROJECT: AUTO-GENERATED DOCS START (do not remove) -->
 
